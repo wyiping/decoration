@@ -5,11 +5,10 @@ import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import App from './App'
 import router from './router'
-import { Tabbar, TabbarItem ,XHeader} from 'vux'
-
+import { Tabbar, TabbarItem, XHeader, AjaxPlugin } from 'vux'
 
 Vue.use(VueRouter)
-
+Vue.use(AjaxPlugin)
 Vue.component('tabbar', Tabbar)
 Vue.component('tabbar-item', TabbarItem)
 Vue.component('x-header', XHeader)
