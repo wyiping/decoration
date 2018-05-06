@@ -18,7 +18,7 @@ var Schema = mongoose.Schema;
 var UserSchema = new Schema({
 	username: { type: String, unique: true },
 	isAdmin: Boolean,
-    password: String,
+	password: String,
 	age: Number,
 	address: String,
 	email: String,
@@ -28,5 +28,23 @@ var UserSchema = new Schema({
 });
 var User = mongoose.model('user', UserSchema);
 
+
+// 提问
+var QuestionSchema = new Schema({
+	asker: { type: Schema.Types.ObjectId, ref: "user" },
+	title: String,
+	content: String,
+	askTime: Date,
+	type: String
+})
+var Question = mongoose.model('question', QuestionSchema);
+
+// 回答
+var AnswerSchema = new Schema({
+	answerer: { type: Schema.Types.ObjectId, ref: "user" },
+	content: String,
+	answerTime: Date
+})
+var Answer = mongoose.model('answer', AnswerSchema);
 // 导出模块
-module.exports = { User };
+module.exports = { User, Question, Answer };

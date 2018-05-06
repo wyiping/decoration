@@ -33,6 +33,10 @@ export default new Router({
 			component: Question,
 		},
 		{
+			path: '/ask',
+			component: resolve => require(['@/components/page/ask'], resolve),
+		},
+		{
 			path: '/user',
 			component: User,
 		},
