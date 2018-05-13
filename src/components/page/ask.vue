@@ -51,7 +51,7 @@ export default {
     ask(){
       this.$http.post('/api/question/ask',this.question).then(({data})=>{
         if(data.code == 1){
-          this.$router.push("/question");
+          this.$router.push("/questions");
         }
       })
     }
