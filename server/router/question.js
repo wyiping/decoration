@@ -29,7 +29,7 @@ router.post('/ask', bodyParser.json(), (req, res) => {
     })
 })
 
-// 查询问题
+// 查询问题列表
 router.post('/find', (req, res) => {
     db.Question.find().populate('user asker').exec((err, data) => {
         res.json({
@@ -37,6 +37,7 @@ router.post('/find', (req, res) => {
                 m = m.toObject();
                 m.id = m._id.toString()
                 m.desc = m.content
+                m.url = '/question/' + m._id.toString()
                 let meta = {}
                 meta.date = formatTime(m.askTime)
                 meta.source = m.asker.username
@@ -48,6 +49,49 @@ router.post('/find', (req, res) => {
                 return m
             })
         })
+    })
+})
+// 查询问题
+router.post('/find/:id', (req, res) => {
+    db.Question.findById(req.params.id, (err, data) => {
+        res.json({
+            question: {
+                title: data.title,
+                askTime: formatTime(data.askTime),
+                content: data.content
+            }
+        })
+    })
+})
+// 查询回答
+router.post('/find/answer/:id', (req, res) => {
+    db.Answer.find({ question: req.params.id }).populate('user answerer').exec((err, data) => {
+        res.json({
+            answers: data.map(m => {
+                m = m.toObject();
+                m.title = m.content
+                let meta = {}
+                meta.date = formatTime(m.answerTime)
+                meta.source = m.answerer.username
+                m.meta = meta
+                delete m._id
+                delete m.answerer
+                delete m.content
+                delete m.answerTime
+                return m
+            })
+        })
+    })
+})
+// 提交回答
+router.post('/answer', bodyParser.json(), (req, res) => {
+    req.body.answerTime = new Date()
+    new db.Answer(req.body).save(err => {
+        if (err) {
+            res.json({ code: 0, msg: '回答失败' })
+        } else {
+            res.json({ code: 1, msg: '回答成功' })
+        }
     })
 })
 module.exports = router

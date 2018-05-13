@@ -41,6 +41,7 @@ var Question = mongoose.model('question', QuestionSchema);
 
 // 回答
 var AnswerSchema = new Schema({
+	question: { type: Schema.Types.ObjectId, ref: "question" },
 	answerer: { type: Schema.Types.ObjectId, ref: "user" },
 	content: String,
 	answerTime: Date

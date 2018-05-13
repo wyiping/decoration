@@ -33,10 +33,10 @@ export default {
         type:""
       },
       types: [
-        { key: "zx", value: "装修" },
-        { key: "j", value: "家居" },
-        { key: "jd", value: "家电" },
-        { key: "jc", value: "建材" }
+        { key: "装修", value: "装修" },
+        { key: "家居", value: "家居" },
+        { key: "家电", value: "家电" },
+        { key: "建材", value: "建材" }
       ]
     };
   },
@@ -49,7 +49,11 @@ export default {
       }
     },
     ask(){
-      this.$http.post('/api/question/ask',this.question)
+      this.$http.post('/api/question/ask',this.question).then(({data})=>{
+        if(data.code == 1){
+          this.$router.push("/question");
+        }
+      })
     }
   },
   mounted() {

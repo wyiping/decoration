@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/home'
-import Find from '@/components/find'
-import User from '@/components/user'
-import Question from '@/components/question'
 Vue.use(Router)
 
 export default new Router({
@@ -26,11 +23,15 @@ export default new Router({
 		},
 		{
 			path: '/find',
-			component: Find,
+			component: resolve => require(['@/components/find'], resolve),
 		},
 		{
-			path: '/question',
-			component: Question,
+			path: '/questions',
+			component: resolve => require(['@/components/questions'], resolve),
+		},
+		{
+			path: '/question/:id',
+			component: resolve => require(['@/components/page/question'], resolve),
 		},
 		{
 			path: '/ask',
@@ -38,7 +39,7 @@ export default new Router({
 		},
 		{
 			path: '/user',
-			component: User,
+			component: resolve => require(['@/components/user'], resolve),
 		},
 		{
 			path: '/login',

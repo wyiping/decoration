@@ -16,8 +16,8 @@
         </div>
       </group>
       <box gap="10px 10px">
-        <divider v-if="all.length==0">问题为空...</divider>
-        <panel :list="all" type="4"></panel>
+        <divider v-if="questions.length==0">问题为空...</divider>
+        <panel :list="questions" type="4"></panel>
       </box>
   </div>
 </template>
@@ -37,14 +37,12 @@ export default {
   },
   data(){
     return {
-      all:[]
+      questions:[]
     }
   },
   mounted(){
     this.$http.post('/api/question/find').then(({data}) => {
-      for(let i = 0;i<data.questions.length;i++){
-        this.all.push(data.questions[i])
-      }
+      this.questions = data.questions
     })
   }
 };

@@ -12,7 +12,7 @@
           <img slot="icon-active" src="./assets/img/find-active.png">
           <span slot="label">发现</span>
         </tabbar-item>
-        <tabbar-item link="/question">
+        <tabbar-item link="/questions">
           <img slot="icon" src="./assets/img/question.png">
           <img slot="icon-active" src="./assets/img/question-active.png">
           <span slot="label">问答</span>
