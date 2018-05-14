@@ -7,7 +7,7 @@
         <div style="padding:10px;">
           <flexbox>
             <flexbox-item>
-              <x-button style="border-radius:99px;">我的问答</x-button>
+              <x-button link="/myquestions" style="border-radius:99px;">我的问答</x-button>
             </flexbox-item>
             <flexbox-item>
               <x-button link="/ask" type="warn" style="border-radius:99px;">我要提问</x-button>

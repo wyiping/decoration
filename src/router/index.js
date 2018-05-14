@@ -34,6 +34,15 @@ export default new Router({
 			component: resolve => require(['@/components/page/question'], resolve),
 		},
 		{
+			path: '/myquestions',
+			component: resolve => require(['@/components/my_a&q'], resolve),
+			children: [
+				{ path: '', component: resolve => require(['@/components/page/my_questions'], resolve) },
+				{ path: 'questions', component: resolve => require(['@/components/page/my_questions'], resolve) },
+				{ path: 'answer', component: resolve => require(['@/components/page/my_answer'], resolve) },
+			]
+		},
+		{
 			path: '/ask',
 			component: resolve => require(['@/components/page/ask'], resolve),
 		},

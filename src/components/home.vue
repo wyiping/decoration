@@ -8,7 +8,7 @@
             <tab-item  @on-item-click="onItemClick" class="vux-center" v-for="(item, index) in lists" :key="index">{{item}}</tab-item>
         </tab>
         <router-view></router-view>
-    </div>
+      </div>
   </div>
 </template>
 

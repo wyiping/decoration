@@ -9,8 +9,8 @@
       <group>
         <cell title="我的资料" link="/user"></cell>
         <cell title="修改密码" link="/user"></cell>
-        <cell title="修改头像" link="/user" @click.native="click"></cell>
-        <cell title="我的问答" link="/question"></cell>
+        <cell title="修改头像" @click.native="click"></cell>
+        <cell title="我的问答" link="/myquestions"></cell>
       </group>
       <input type="file" accept="image/*" multiple style="display:none" name="photo" ref="photo" @change='onUpload'/>
       <box gap="10px 10px">
