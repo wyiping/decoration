@@ -5,7 +5,9 @@
       </x-header>
       <div>
         <tab :line-width=2 active-color='#fc378c' v-model="index">
-            <tab-item  @on-item-click="onItemClick" class="vux-center" v-for="(item, index) in lists" :key="index">{{item}}</tab-item>
+          <tab-item class="vux-center" v-for="(item, index) in navbar" :key="index" @on-item-click="onItemClick(item.url)">
+            {{item.text}}
+          </tab-item>
         </tab>
         <router-view></router-view>
       </div>
@@ -13,24 +15,67 @@
 </template>
 
 <script>
-const list = () => ["推荐","热点","攻略","本地","选材","案例","设计","家居","美图"];
-const routers = ['recommend','hot','strategy','local','choose','case','design','household','pictures']
-import { Tab, TabItem,  } from "vux";
+import { Tab, TabItem } from "vux";
 
 export default {
   components: {
     Tab,
-    TabItem,
+    TabItem
   },
-  methods:{
-    onItemClick(index){
-      let path = '/' + routers[index]
-      this.$router.push(path)
+  methods: {
+    onItemClick(path) {
+      this.$router.push(path);
     }
   },
   data() {
     return {
-      lists: list(),
+      navbar: [
+        {
+          text: "推荐",
+          url: "/home/recommend",
+          type: "recommend"
+        },
+        {
+          text: "热点",
+          url: "/home/hot",
+          type: "hot"
+        },
+        {
+          text: "攻略",
+          url: "/home/strategy",
+          type: "strategy"
+        },
+        {
+          text: "本地",
+          url: "/home/local",
+          type: "local"
+        },
+        {
+          text: "选材",
+          url: "/home/choose",
+          type: "choose"
+        },
+        {
+          text: "案例",
+          url: "/home/case",
+          type: "case"
+        },
+        {
+          text: "设计",
+          url: "/home/design",
+          type: "design"
+        },
+        {
+          text: "家居",
+          url: "/home/household",
+          type: "household"
+        },
+        {
+          text: "美图",
+          url: "/home/pictures",
+          type: "pictures"
+        }
+      ],
       index: 0
     };
   }

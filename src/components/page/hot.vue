@@ -3,7 +3,7 @@
     <ul class="newsContent animated">
         <router-link
           v-for="(val,index) in listCon"
-          :to="{name:'newsdetail'}"
+          :to="{name:'detaile'}"
           class="newsDetaile"
           :key="index"
         >
