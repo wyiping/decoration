@@ -41,21 +41,6 @@ export default {
           type: "hot"
         },
         {
-          text: "攻略",
-          url: "/home/strategy",
-          type: "strategy"
-        },
-        {
-          text: "本地",
-          url: "/home/local",
-          type: "local"
-        },
-        {
-          text: "选材",
-          url: "/home/choose",
-          type: "choose"
-        },
-        {
           text: "案例",
           url: "/home/case",
           type: "case"
@@ -66,14 +51,24 @@ export default {
           type: "design"
         },
         {
-          text: "家居",
-          url: "/home/household",
-          type: "household"
-        },
-        {
           text: "美图",
           url: "/home/pictures",
           type: "pictures"
+        },
+        {
+          text: "攻略",
+          url: "/home/strategy",
+          type: "strategy"
+        },
+        {
+          text: "选材",
+          url: "/home/choose",
+          type: "choose"
+        },
+        {
+          text: "本地",
+          url: "/home/local",
+          type: "local"
         }
       ],
       index: 0

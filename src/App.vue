@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-      <router-view></router-view>
+      <view-box ref="viewBox">
+        <router-view></router-view>
+      </view-box>
       <tabbar>
         <tabbar-item selected link="/">
           <img slot="icon" src="./assets/img/home.png">
@@ -27,11 +29,16 @@
 </template>
 
 <script>
+import { ViewBox } from "vux";
+
 export default {
   name: "app",
+  components: {
+    ViewBox
+  },
   data() {
     return {
-      msg: "Hello World!",
+      msg: "Hello World!"
     };
   }
 };
@@ -43,7 +50,8 @@ export default {
 body {
   background-color: #fbf9fe;
 }
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;

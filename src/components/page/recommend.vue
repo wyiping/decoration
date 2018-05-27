@@ -8,17 +8,17 @@
           class="newsDetaile"
           :key="index"
         >
-        <p class="title">{{val.title}}</p>
-        <div>
-          <img alt="加载出错" v-for="(url,index) in val.img_arr" :key="index" :src="url">
-          <div class="bottomInfo clearfix">
-            <span class="writer">{{val.source}}</span> &nbsp;&nbsp;
-            <span class="comment_count">阅读&nbsp;{{val.views}}</span>
-            <span class="datetime">{{val.date}}</span>
+          <p class="title">{{val.title}}</p>
+          <div>
+            <img alt="加载出错" v-for="(url,index) in val.img_arr" :key="index" :src="url">
+            <div class="bottomInfo clearfix">
+              <span class="writer">{{val.source}}</span> &nbsp;&nbsp;
+              <span class="comment_count">阅读&nbsp;{{val.views}}</span>
+              <span class="datetime">{{val.date}}</span>
+            </div>
           </div>
-        </div>
-      </router-link>
-    </ul>
+        </router-link>
+      </ul>
   </div>
 </template>
 
@@ -35,10 +35,10 @@ export default {
       this.banner_index = index;
     }
   },
-  mounted(){
-    this.$http.get('/api/api/recommend').then(({data})=>{
-      this.listCon = data.list
-    })
+  mounted() {
+    this.$http.get("/api/api/recommend").then(({ data }) => {
+      this.listCon = data.list;
+    });
   },
   data() {
     return {
