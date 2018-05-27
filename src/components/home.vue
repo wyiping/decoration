@@ -46,14 +46,14 @@ export default {
           type: "case"
         },
         {
-          text: "设计",
-          url: "/home/design",
-          type: "design"
-        },
-        {
           text: "美图",
           url: "/home/pictures",
           type: "pictures"
+        },
+        {
+          text: "设计",
+          url: "/home/design",
+          type: "design"
         },
         {
           text: "攻略",
