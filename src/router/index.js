@@ -6,7 +6,7 @@ Vue.use(Router)
 export default new Router({
 	routes: [
 		{
-			path: '/',
+			path: '/home',
 			component: Home,
 			children: [
 				{ path: '', component: resolve => require(['@/components/page/recommend'], resolve) },
@@ -20,6 +20,11 @@ export default new Router({
 				{ path: 'household', component: resolve => require(['@/components/page/household'], resolve) },
 				{ path: 'pictures', component: resolve => require(['@/components/page/pictures'], resolve) }
 			]
+		},
+		{
+			path: '/detaile',
+			name: 'detaile',
+			component: resolve => require(['@/components/page/detaile'], resolve)
 		},
 		{
 			path: '/find',
@@ -57,6 +62,14 @@ export default new Router({
 		{
 			path: '/register',
 			component: resolve => require(['@/components/page/register'], resolve)
+		},
+		{
+			path: '*',
+			redirect: '/home'
+		},
+		{
+			path: '',
+			redirect: '/home'
 		}
 	]
 })
