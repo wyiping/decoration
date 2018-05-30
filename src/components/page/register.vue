@@ -10,7 +10,7 @@
       </tab>
       <group>
         <x-input title="账号" name="username" v-model="user.username" placeholder="请输入账号" ref="username" required label-width="80px"></x-input>
-        <x-input title="密码" name="password" v-model="user.password" placeholder="请输入密码" ref="password" type="password" required label-width="80px"></x-input>
+        <x-input title="密码" name="password" v-model="user.password" placeholder="请输入密码" ref="password" type="password" :min="6" required label-width="80px"></x-input>
         <x-input title="邮箱" name="email" v-model="user.email" placeholder="请输入邮箱地址" is-type="email" label-width="80px"></x-input>
         <x-input title="手机号码" name="mobile" v-model="user.mobile" placeholder="请输入手机号码" keyboard="number" is-type="china-mobile" label-width="80px"></x-input>
       </group>

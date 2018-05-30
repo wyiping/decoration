@@ -64,6 +64,10 @@ export default new Router({
 			component: resolve => require(['@/components/page/register'], resolve)
 		},
 		{
+			path:'/editPassword/:id',
+			component: resolve => require(['@/components/page/editPassword'], resolve)
+		},
+		{
 			path: '*',
 			redirect: '/home'
 		},

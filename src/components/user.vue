@@ -8,7 +8,7 @@
 
       <group>
         <cell title="我的资料" link="/user"></cell>
-        <cell title="修改密码" link="/user"></cell>
+        <cell title="修改密码" :link="'/editPassword/'+user.id"></cell>
         <cell title="修改头像" @click.native="click"></cell>
         <cell title="我的问答" link="/myquestions"></cell>
       </group>

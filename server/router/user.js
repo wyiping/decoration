@@ -54,13 +54,33 @@ router.post('/update/photo/:id', upload.single('file'), (req, res) => {
     })
 })
 
-router.post('/find/:id', bodyParser.json(), (req,res) => {
-    db.User.findById(req.params.id,(err,data)=>{
+router.post('/find/:id', bodyParser.json(), (req, res) => {
+    db.User.findById(req.params.id, (err, data) => {
         let user = {}
         user.id = data.id
         user.username = data.username
         user.photo = data.photo
         res.json({ user })
+    })
+})
+
+router.post('/edit/password/:id', bodyParser.json(), (req, res) => {
+    db.User.find({ _id: req.params.id, password: req.body.old }).count((err, count) => {
+        if (err) {
+            res.json({ code: 0, title: '失败', msg: '系统错误,请重试' })
+        } else {
+            if (count > 0) {
+                db.User.findByIdAndUpdate(req.params.id, { $set: { 'password': req.body.password } }, (err, data) => {
+                    if (err) {
+                        res.json({ code: 0, title: '失败', msg: '密码修改失败' })
+                    } else {
+                        res.json({ code: 1, title: '成功', msg: '密码修改成功!' })
+                    }
+                })
+            } else {
+                res.json({ code: 0, title: '失败', msg: '原密码错误，请重试！' })
+            }
+        }
     })
 })
 module.exports = router
