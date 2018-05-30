@@ -22,9 +22,9 @@ export default new Router({
 			]
 		},
 		{
-			path: '/detaile',
-			name: 'detaile',
-			component: resolve => require(['@/components/page/detaile'], resolve)
+			path: '/detail',
+			name: 'detail',
+			component: resolve => require(['@/components/page/detail'], resolve)
 		},
 		{
 			path: '/find',
